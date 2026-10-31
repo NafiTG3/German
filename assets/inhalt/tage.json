@@ -1,0 +1,301 @@
+[
+  {
+    "nr": 1, "thema": "Begrüßung", "bn": "শুভেচ্ছা বিনিময়",
+    "grammatik": {"titel": "Du oder Sie?", "text": "du = বন্ধু, পরিবার, সমবয়সী। Sie = অপরিচিত, শিক্ষক, অফিস, আনুষ্ঠানিক পরিস্থিতি (সবসময় বড় হাতের S)। জার্মানিতে অপরিচিত কাউকে প্রথমে 'Sie' বলাই নিরাপদ।"},
+    "woerter": [
+      ["Hallo", "হ্যালো", "Hallo, Anna!", "হ্যালো, আনা!"],
+      ["Guten Morgen", "শুভ সকাল", "Guten Morgen, Herr Weber.", "শুভ সকাল, মিস্টার ভেবার।"],
+      ["Guten Tag", "শুভ দিন", "Guten Tag, Frau Klein.", "শুভ দিন, মিসেস ক্লাইন।"],
+      ["Guten Abend", "শুভ সন্ধ্যা", "Guten Abend, Lena.", "শুভ সন্ধ্যা, লেনা।"],
+      ["Gute Nacht", "শুভ রাত্রি", "Gute Nacht, Mama.", "শুভ রাত্রি, মা।"],
+      ["Tschüss", "বিদায় (ঘরোয়া)", "Tschüss, bis morgen!", "বিদায়, কাল দেখা হবে!"],
+      ["Auf Wiedersehen", "বিদায় (আনুষ্ঠানিক)", "Auf Wiedersehen, Herr Weber.", "বিদায়, মিস্টার ভেবার।"],
+      ["Danke", "ধন্যবাদ", "Danke für die Hilfe.", "সাহায্যের জন্য ধন্যবাদ।"],
+      ["Bitte", "দয়া করে", "Ein Wasser, bitte.", "একটি পানি, দয়া করে।"]
+    ],
+    "dialog": [
+      ["Anna", "Guten Morgen! Wie geht's?", "শুভ সকাল! কেমন আছো?"],
+      ["Ben", "Guten Morgen! Gut, danke. Und dir?", "শুভ সকাল! ভালো, ধন্যবাদ। আর তোমার?"],
+      ["Anna", "Auch gut, danke.", "আমিও ভালো, ধন্যবাদ।"],
+      ["Ben", "Tschüss, bis später!", "বিদায়, পরে দেখা হবে!"]
+    ]
+  },
+  {
+    "nr": 2, "thema": "Sich vorstellen", "bn": "নিজের পরিচয় দেওয়া",
+    "grammatik": {"titel": "sein und heißen", "text": "ক্রিয়া ব্যক্তি অনুযায়ী বদলায়। sein: ich bin, du bist, er/sie ist, wir sind, ihr seid, sie/Sie sind। heißen: ich heiße, du heißt, er heißt। বাক্যে ক্রিয়া সবসময় দ্বিতীয় স্থানে বসে।"},
+    "woerter": [
+      ["ich heiße", "আমার নাম", "Ich heiße Rahim.", "আমার নাম রহিম।"],
+      ["Wie heißt du?", "তোমার নাম কী?", "Wie heißt du? Ich heiße Nila.", "তোমার নাম কী? আমার নাম নীলা।"],
+      ["ich komme aus", "আমি এসেছি (থেকে)", "Ich komme aus Bangladesch.", "আমি বাংলাদেশ থেকে এসেছি।"],
+      ["ich wohne in", "আমি থাকি (শহরে)", "Ich wohne in Dhaka.", "আমি ঢাকায় থাকি।"],
+      ["ich bin", "আমি হই", "Ich bin Student.", "আমি ছাত্র।"],
+      ["das Land", "দেশ", "Das Land ist sehr schön.", "দেশটি খুব সুন্দর।"],
+      ["der Name", "নাম", "Mein Name ist Karim.", "আমার নাম করিম।"],
+      ["Freut mich", "পরিচিত হয়ে খুশি", "Freut mich, Herr Weber.", "পরিচিত হয়ে খুশি, মিস্টার ভেবার।"]
+    ],
+    "dialog": [
+      ["Weber", "Guten Tag. Wie heißen Sie?", "শুভ দিন। আপনার নাম কী?"],
+      ["Rahim", "Ich heiße Rahim. Und Sie?", "আমার নাম রহিম। আর আপনার?"],
+      ["Weber", "Ich bin Thomas Weber. Woher kommen Sie?", "আমি টমাস ভেবার। আপনি কোথা থেকে এসেছেন?"],
+      ["Rahim", "Ich komme aus Bangladesch.", "আমি বাংলাদেশ থেকে এসেছি।"],
+      ["Weber", "Freut mich!", "পরিচিত হয়ে খুশি!"]
+    ]
+  },
+  {
+    "nr": 3, "thema": "Zahlen 0 bis 10", "bn": "সংখ্যা ০ থেকে ১০",
+    "grammatik": {"titel": "Aussprache: z, w, s", "text": "z = ৎস (zwei = ৎসভাই)। w = ভ (wir = ভির)। s স্বরবর্ণের আগে = জ (sieben = জিবেন)। sechs = জেক্স। drei = দ্রাই। প্রতিটি সংখ্যা জোরে বলে অভ্যাস করো।"},
+    "woerter": [
+      ["null", "শূন্য", "Null Fehler!", "শূন্য ভুল!"],
+      ["eins", "এক", "Ich nehme eins.", "আমি একটা নিচ্ছি।"],
+      ["zwei", "দুই", "Zwei Tee, bitte.", "দুটি চা, দয়া করে।"],
+      ["drei", "তিন", "Ich habe drei Bücher.", "আমার তিনটি বই আছে।"],
+      ["vier", "চার", "Wir sind vier Personen.", "আমরা চারজন।"],
+      ["fünf", "পাঁচ", "Es ist fünf Uhr.", "এখন পাঁচটা বাজে।"],
+      ["sechs", "ছয়", "Ich stehe um sechs auf.", "আমি ছয়টায় উঠি।"],
+      ["sieben", "সাত", "Eine Woche hat sieben Tage.", "এক সপ্তাহে সাত দিন।"],
+      ["acht", "আট", "Der Kurs beginnt um acht.", "কোর্স আটটায় শুরু হয়।"],
+      ["neun", "নয়", "Zimmer neun, bitte.", "নয় নম্বর রুম, দয়া করে।"],
+      ["zehn", "দশ", "Zehn Euro, bitte.", "দশ ইউরো, দয়া করে।"]
+    ],
+    "dialog": [
+      ["A", "Wie ist deine Nummer?", "তোমার নম্বর কত?"],
+      ["B", "Null eins fünf zwei, drei vier sechs.", "শূন্য এক পাঁচ দুই, তিন চার ছয়।"],
+      ["A", "Wie bitte? Noch einmal, bitte.", "কী বললে? আবার বলো, দয়া করে।"],
+      ["B", "Null eins fünf zwei, drei vier sechs.", "শূন্য এক পাঁচ দুই, তিন চার ছয়।"],
+      ["A", "Danke!", "ধন্যবাদ!"]
+    ]
+  },
+  {
+    "nr": 4, "thema": "Aussprache und Alphabet", "bn": "উচ্চারণ ও বর্ণমালা",
+    "grammatik": {"titel": "Umlaute, ß und ch", "text": "ä = লম্বা 'এ'। ö = ঠোঁট গোল করে 'এ'। ü = ঠোঁট গোল করে 'ই'। ß = তীক্ষ্ণ 'স' (ss)। ch (ich) = নরম হিস শব্দ, ch (Buch) = গলার ভেতর থেকে 'খ'। sch = 'শ'। ei = 'আই', eu/äu = 'অয়', ie = লম্বা 'ই'।"},
+    "woerter": [
+      ["schön", "সুন্দর", "Das Wetter ist schön.", "আবহাওয়া সুন্দর।"],
+      ["die Straße", "রাস্তা", "Die Straße ist lang.", "রাস্তাটি লম্বা।"],
+      ["über", "সম্পর্কে", "Wir sprechen über Arbeit.", "আমরা কাজ নিয়ে কথা বলছি।"],
+      ["das Mädchen", "মেয়ে (শিশু)", "Das Mädchen lernt Deutsch.", "মেয়েটি জার্মান শিখছে।"],
+      ["das Buch", "বই", "Das Buch ist neu.", "বইটি নতুন।"],
+      ["die Schule", "স্কুল", "Ich gehe in die Schule.", "আমি স্কুলে যাই।"],
+      ["Entschuldigung", "মাফ করবেন", "Entschuldigung, wie bitte?", "মাফ করবেন, কী বললেন?"]
+    ],
+    "dialog": [
+      ["A", "Wie schreibt man Ihren Namen?", "আপনার নামের বানান কী?"],
+      ["B", "Rahman. R, A, H, M, A, N.", "রহমান। R, A, H, M, A, N।"],
+      ["A", "Wie bitte? Langsamer, bitte.", "কী বললেন? আরেকটু ধীরে, দয়া করে।"],
+      ["B", "R, A, H, M, A, N.", "R, A, H, M, A, N।"]
+    ]
+  },
+  {
+    "nr": 5, "thema": "Fragen stellen", "bn": "প্রশ্ন করা",
+    "grammatik": {"titel": "W-Frage und Ja/Nein-Frage", "text": "W-Frage: W-Wort + Verb + Subjekt, যেমন: Wo wohnst du? Ja/Nein-Frage: ক্রিয়া সবার আগে, যেমন: Wohnst du in Berlin? উত্তর হয় Ja অথবা Nein। W-প্রশ্নে ক্রিয়া ২য় স্থানে, হ্যাঁ/না প্রশ্নে ১ম স্থানে।"},
+    "woerter": [
+      ["Wer", "কে", "Wer ist das?", "ইনি কে?"],
+      ["Was", "কী", "Was machst du?", "তুমি কী করছো?"],
+      ["Wo", "কোথায়", "Wo wohnst du?", "তুমি কোথায় থাকো?"],
+      ["Woher", "কোথা থেকে", "Woher kommst du?", "তুমি কোথা থেকে এসেছো?"],
+      ["Wohin", "কোথায় (দিকে)", "Wohin gehst du?", "তুমি কোথায় যাচ্ছো?"],
+      ["Wann", "কখন", "Wann beginnt der Kurs?", "কোর্স কখন শুরু হয়?"],
+      ["Warum", "কেন", "Warum lernst du Deutsch?", "তুমি কেন জার্মান শিখছো?"],
+      ["Wie", "কেমন", "Wie geht es dir?", "তুমি কেমন আছো?"],
+      ["Wie viel", "কত", "Wie viel kostet das?", "এটার দাম কত?"]
+    ],
+    "dialog": [
+      ["A", "Woher kommst du?", "তুমি কোথা থেকে এসেছো?"],
+      ["B", "Aus Bangladesch. Und du?", "বাংলাদেশ থেকে। আর তুমি?"],
+      ["A", "Aus Spanien. Warum lernst du Deutsch?", "স্পেন থেকে। তুমি কেন জার্মান শিখছো?"],
+      ["B", "Ich möchte eine Ausbildung in Deutschland machen.", "আমি জার্মানিতে একটি আউসবিল্ডুং (বৃত্তিমূলক প্রশিক্ষণ) করতে চাই।"]
+    ]
+  },
+  {
+    "nr": 6, "thema": "Artikel und Gegenstände", "bn": "আর্টিকেল ও জিনিসপত্র",
+    "grammatik": {"titel": "der, die, das", "text": "প্রতিটি বিশেষ্যের লিঙ্গ আছে: der (পুংলিঙ্গ), die (স্ত্রীলিঙ্গ), das (ক্লীব)। বহুবচনে সবসময় die। লিঙ্গ আন্দাজ করা যায় না, তাই শব্দ শেখার সময় সবসময় আর্টিকেলসহ মুখস্থ করো। অনির্দিষ্ট রূপ: ein (der/das), eine (die)।"},
+    "woerter": [
+      ["der Tisch", "টেবিল", "Hier ist der Tisch.", "এখানে টেবিল।"],
+      ["die Lampe", "বাতি", "Wo ist die Lampe?", "বাতিটি কোথায়?"],
+      ["das Fenster", "জানালা", "Ich öffne das Fenster.", "আমি জানালা খুলছি।"],
+      ["der Stuhl", "চেয়ার", "Wo ist der Stuhl?", "চেয়ারটি কোথায়?"],
+      ["die Tür", "দরজা", "Bitte schließen Sie die Tür.", "দয়া করে দরজা বন্ধ করুন।"],
+      ["das Handy", "মোবাইল ফোন", "Hier ist das Handy.", "এখানে মোবাইল ফোন।"],
+      ["der Mann", "পুরুষ", "Wer ist der Mann?", "লোকটি কে?"],
+      ["die Frau", "নারী", "Wer ist die Frau?", "মহিলাটি কে?"]
+    ],
+    "dialog": [
+      ["A", "Entschuldigung, wo ist die Tür?", "মাফ করবেন, দরজা কোথায়?"],
+      ["B", "Hier, links.", "এই যে, বামদিকে।"],
+      ["A", "Und wo ist das Fenster?", "আর জানালা কোথায়?"],
+      ["B", "Da, rechts.", "ওখানে, ডানদিকে।"]
+    ]
+  },
+  {
+    "nr": 7, "thema": "Im Café", "bn": "ক্যাফেতে",
+    "grammatik": {"titel": "möchten", "text": "ich möchte, du möchtest, er/sie möchte, wir möchten, Sie möchten। দ্বিতীয় ক্রিয়া বাক্যের শেষে মূল রূপে বসে: Ich möchte einen Tee trinken। দোকান বা ক্যাফেতে 'Ich möchte ...' অথবা 'Ich hätte gern ...' বলো। 'Ich will' অভদ্র শোনায়।"},
+    "woerter": [
+      ["der Kaffee", "কফি", "Heute schmeckt der Kaffee gut.", "আজ কফিটা ভালো লাগছে।"],
+      ["der Tee", "চা", "Hier ist der Tee.", "এই যে চা।"],
+      ["das Wasser", "পানি", "Ich nehme das Wasser.", "আমি পানিটা নেব।"],
+      ["möchten", "চাওয়া (ভদ্রভাবে)", "Ich möchte einen Tee.", "আমি একটি চা চাই।"],
+      ["die Rechnung", "বিল", "Ich möchte die Rechnung, bitte.", "আমি বিলটা চাই, দয়া করে।"],
+      ["bezahlen", "বিল মেটানো", "Ich möchte bezahlen.", "আমি বিল মেটাতে চাই।"],
+      ["zusammen", "একসাথে", "Wir zahlen zusammen.", "আমরা একসাথে দিচ্ছি।"],
+      ["getrennt", "আলাদা আলাদা", "Wir zahlen getrennt.", "আমরা আলাদা আলাদা দিচ্ছি।"]
+    ],
+    "dialog": [
+      ["Kellner", "Guten Tag! Was möchten Sie?", "শুভ দিন! আপনি কী চান?"],
+      ["Gast", "Ich möchte einen Tee, bitte.", "আমি একটি চা চাই, দয়া করে।"],
+      ["Kellner", "Gern. Sonst noch etwas?", "অবশ্যই। আর কিছু?"],
+      ["Gast", "Nein, danke. Ich möchte bezahlen.", "না, ধন্যবাদ। আমি বিল মেটাতে চাই।"],
+      ["Kellner", "Das macht zwei Euro fünfzig.", "মোট দুই ইউরো পঞ্চাশ সেন্ট।"]
+    ]
+  },
+  {
+    "nr": 8, "thema": "Zahlen ab 20 und Alter", "bn": "২০ থেকে ১০০ এবং বয়স",
+    "grammatik": {"titel": "Zahlen 21 bis 99", "text": "জার্মানে আগে একক, পরে দশক: 21 = einundzwanzig (এক + এবং + বিশ), 34 = vierunddreißig, 57 = siebenundfünfzig। সব এক শব্দে লেখা হয়। সতর্ক থাকো: 16 = sechzehn (sechs নয়), 17 = siebzehn (sieben নয়)।"},
+    "woerter": [
+      ["zwanzig", "বিশ", "Der Kurs kostet zwanzig Euro.", "কোর্সের দাম বিশ ইউরো।"],
+      ["dreißig", "ত্রিশ", "Der Zug kommt in dreißig Minuten.", "ট্রেন ত্রিশ মিনিটে আসবে।"],
+      ["vierzig", "চল্লিশ", "Ich arbeite vierzig Stunden pro Woche.", "আমি সপ্তাহে চল্লিশ ঘণ্টা কাজ করি।"],
+      ["fünfzig", "পঞ্চাশ", "Das kostet fünfzig Euro.", "এটার দাম পঞ্চাশ ইউরো।"],
+      ["sechzig", "ষাট", "Eine Stunde hat sechzig Minuten.", "এক ঘণ্টায় ষাট মিনিট।"],
+      ["siebzig", "সত্তর", "Mein Großvater ist siebzig Jahre alt.", "আমার দাদা/নানার বয়স সত্তর বছর।"],
+      ["achtzig", "আশি", "Das Hotel kostet achtzig Euro.", "হোটেলের দাম আশি ইউরো।"],
+      ["neunzig", "নব্বই", "Der Bus braucht neunzig Minuten.", "বাসে নব্বই মিনিট লাগে।"],
+      ["hundert", "একশো", "Das Buch hat hundert Seiten.", "বইটিতে একশো পৃষ্ঠা।"],
+      ["Jahre alt", "বছর বয়সী", "Ich bin zwanzig Jahre alt.", "আমার বয়স বিশ বছর।"]
+    ],
+    "dialog": [
+      ["A", "Wie alt bist du?", "তোমার বয়স কত?"],
+      ["B", "Ich bin einundzwanzig Jahre alt. Und du?", "আমার বয়স একুশ বছর। আর তোমার?"],
+      ["A", "Ich bin vierundzwanzig.", "আমার চব্বিশ।"],
+      ["B", "Und wie viel kostet das Ticket?", "আর টিকিটের দাম কত?"],
+      ["A", "Es kostet vierunddreißig Euro.", "এটার দাম চৌত্রিশ ইউরো।"]
+    ]
+  },
+  {
+    "nr": 9, "thema": "Wochentage", "bn": "সপ্তাহের দিন",
+    "grammatik": {"titel": "am, um, im", "text": "am + দিন: am Montag (সোমবারে)। um + সময়: um acht Uhr (আটটায়)। im + মাস: im Januar (জানুয়ারিতে)। সব দিনের নাম der (পুংলিঙ্গ)। জার্মান সপ্তাহ সোমবার থেকে শুরু হয়।"},
+    "woerter": [
+      ["Montag", "সোমবার", "Am Montag habe ich Unterricht.", "সোমবার আমার ক্লাস আছে।"],
+      ["Dienstag", "মঙ্গলবার", "Am Dienstag lerne ich Deutsch.", "মঙ্গলবার আমি জার্মান শিখি।"],
+      ["Mittwoch", "বুধবার", "Am Mittwoch arbeite ich.", "বুধবার আমি কাজ করি।"],
+      ["Donnerstag", "বৃহস্পতিবার", "Am Donnerstag gehe ich einkaufen.", "বৃহস্পতিবার আমি বাজার করতে যাই।"],
+      ["Freitag", "শুক্রবার", "Am Freitag habe ich frei.", "শুক্রবার আমার ছুটি।"],
+      ["Samstag", "শনিবার", "Am Samstag besuche ich Freunde.", "শনিবার আমি বন্ধুদের সাথে দেখা করি।"],
+      ["Sonntag", "রবিবার", "Am Sonntag schlafe ich lange.", "রবিবার আমি দেরি করে ঘুমাই।"],
+      ["heute", "আজ", "Was machst du heute?", "আজ তুমি কী করছো?"],
+      ["morgen", "আগামীকাল", "Wir sehen uns morgen.", "কাল আমাদের দেখা হবে।"]
+    ],
+    "dialog": [
+      ["A", "Hast du am Samstag Zeit?", "শনিবার তোমার সময় আছে?"],
+      ["B", "Nein, am Samstag arbeite ich. Und am Sonntag?", "না, শনিবার আমি কাজ করি। আর রবিবার?"],
+      ["A", "Am Sonntag passt gut.", "রবিবার ঠিক আছে।"],
+      ["B", "Super! Bis Sonntag!", "দারুণ! রবিবার দেখা হবে!"]
+    ]
+  },
+  {
+    "nr": 10, "thema": "Uhrzeit", "bn": "সময় বলা",
+    "grammatik": {"titel": "Uhrzeit sagen", "text": "সরকারি: 14:30 = vierzehn Uhr dreißig। দৈনন্দিন: halb drei = 2:30 (তিনের আধা আগে, তাই আড়াইটা!)। Viertel nach zwei = 2:15, Viertel vor drei = 2:45। 'halb' সবসময় পরের ঘণ্টা ধরে: halb acht = 7:30। প্রশ্ন: Wie spät ist es? উত্তর: Es ist ... Uhr।"},
+    "woerter": [
+      ["die Uhr", "ঘড়ি", "Ich schaue auf die Uhr.", "আমি ঘড়ির দিকে তাকাই।"],
+      ["die Stunde", "ঘণ্টা", "Der Kurs dauert eine Stunde.", "কোর্স এক ঘণ্টা চলে।"],
+      ["die Minute", "মিনিট", "Warte bitte eine Minute.", "দয়া করে এক মিনিট অপেক্ষা করো।"],
+      ["halb", "আধা (পরের ঘণ্টার আধা আগে)", "Es ist halb drei.", "আড়াইটা বাজে।"],
+      ["Viertel", "পনেরো মিনিট", "Es ist Viertel nach vier.", "চারটা পনেরো বাজে।"],
+      ["früh", "সকালে / তাড়াতাড়ি", "Ich stehe früh auf.", "আমি তাড়াতাড়ি উঠি।"],
+      ["spät", "দেরি", "Es ist schon spät.", "ইতিমধ্যেই দেরি হয়ে গেছে।"],
+      ["pünktlich", "সময়মতো", "Der Zug ist pünktlich.", "ট্রেন সময়মতো আছে।"]
+    ],
+    "dialog": [
+      ["A", "Entschuldigung, wie spät ist es?", "মাফ করবেন, কয়টা বাজে?"],
+      ["B", "Es ist halb neun.", "সাড়ে আটটা বাজে।"],
+      ["A", "Oh, ich muss los! Der Kurs beginnt um neun Uhr.", "ওহ, আমাকে যেতে হবে! কোর্স নয়টায় শুরু হয়।"],
+      ["B", "Keine Sorge, du hast noch Zeit.", "চিন্তা করো না, তোমার হাতে এখনও সময় আছে।"]
+    ]
+  },
+  {
+    "nr": 11, "thema": "Familie", "bn": "পরিবার",
+    "grammatik": {"titel": "mein und meine", "text": "mein + der/das-শব্দ: mein Vater, mein Kind। meine + die-শব্দ ও বহুবচন: meine Mutter, meine Eltern। একইভাবে dein/deine (তোমার), sein/seine (তার, পুরুষ), ihr/ihre (তার, নারী)। haben: ich habe, du hast, er/sie hat।"},
+    "woerter": [
+      ["die Mutter", "মা", "Meine Mutter ist Lehrerin.", "আমার মা শিক্ষিকা।"],
+      ["der Vater", "বাবা", "Mein Vater arbeitet viel.", "আমার বাবা অনেক কাজ করেন।"],
+      ["der Bruder", "ভাই", "Ich habe einen Bruder.", "আমার একজন ভাই আছে।"],
+      ["die Schwester", "বোন", "Meine Schwester wohnt in Dhaka.", "আমার বোন ঢাকায় থাকে।"],
+      ["die Eltern", "বাবা-মা", "Meine Eltern wohnen in Sylhet.", "আমার বাবা-মা সিলেটে থাকেন।"],
+      ["das Kind", "শিশু", "Das Kind spielt.", "শিশুটি খেলছে।"],
+      ["die Großmutter", "দাদি / নানি", "Meine Großmutter kocht gut.", "আমার দাদি/নানি ভালো রান্না করেন।"],
+      ["der Großvater", "দাদা / নানা", "Mein Großvater ist alt.", "আমার দাদা/নানা বয়স্ক।"],
+      ["die Familie", "পরিবার", "Meine Familie ist groß.", "আমার পরিবার বড়।"]
+    ],
+    "dialog": [
+      ["A", "Hast du Geschwister?", "তোমার কি ভাইবোন আছে?"],
+      ["B", "Ja, ich habe einen Bruder und zwei Schwestern.", "হ্যাঁ, আমার একজন ভাই ও দুইজন বোন আছে।"],
+      ["A", "Und deine Eltern? Wo wohnen sie?", "আর তোমার বাবা-মা? তারা কোথায় থাকেন?"],
+      ["B", "Meine Eltern wohnen in Bangladesch.", "আমার বাবা-মা বাংলাদেশে থাকেন।"]
+    ]
+  },
+  {
+    "nr": 12, "thema": "Essen und Trinken", "bn": "খাওয়া ও পান করা",
+    "grammatik": {"titel": "Akkusativ und kein", "text": "কর্ম (Akkusativ) এ শুধু der বদলায়: der → den, ein → einen (Ich möchte einen Tee)। die/das/বহুবচন বদলায় না। না-বাচক: kein = ein-এর উল্টো: kein Brot, keine Milch, keinen Fisch। ক্রিয়াকে না করতে nicht ব্যবহার হয়: Ich esse nicht।"},
+    "woerter": [
+      ["das Brot", "রুটি", "Ich esse Brot zum Frühstück.", "আমি সকালের নাস্তায় রুটি খাই।"],
+      ["der Reis", "ভাত / চাল", "Wir essen oft Reis.", "আমরা প্রায়ই ভাত খাই।"],
+      ["das Fleisch", "মাংস", "Ich esse kein Fleisch.", "আমি মাংস খাই না।"],
+      ["das Gemüse", "সবজি", "Das Gemüse ist frisch.", "সবজি তাজা।"],
+      ["das Obst", "ফল", "Ich kaufe Obst auf dem Markt.", "আমি বাজার থেকে ফল কিনি।"],
+      ["die Milch", "দুধ", "Ich trinke Milch.", "আমি দুধ পান করি।"],
+      ["das Ei", "ডিম", "Ich esse ein Ei.", "আমি একটি ডিম খাই।"],
+      ["der Fisch", "মাছ", "Fisch esse ich gern.", "মাছ আমি পছন্দ করে খাই।"],
+      ["essen", "খাওয়া", "Wir essen um zwölf Uhr.", "আমরা বারোটায় খাই।"],
+      ["trinken", "পান করা", "Was möchtest du trinken?", "তুমি কী পান করতে চাও?"]
+    ],
+    "dialog": [
+      ["A", "Was isst du zum Frühstück?", "তুমি সকালের নাস্তায় কী খাও?"],
+      ["B", "Ich esse Brot und ein Ei. Und du?", "আমি রুটি আর একটি ডিম খাই। আর তুমি?"],
+      ["A", "Ich esse Reis und trinke Tee.", "আমি ভাত খাই আর চা পান করি।"],
+      ["B", "Magst du Fisch?", "তুমি কি মাছ পছন্দ করো?"],
+      ["A", "Ja, sehr gern!", "হ্যাঁ, খুব পছন্দ করি!"]
+    ]
+  },
+  {
+    "nr": 13, "thema": "Einkaufen", "bn": "কেনাকাটা",
+    "grammatik": {"titel": "Wie viel kostet das?", "text": "একবচন: Wie viel kostet das Brot? বহুবচন: Wie viel kosten die Äpfel? (বিশেষ্য অনুযায়ী kostet/kosten)। দাম বলা: 2,50 € = zwei Euro fünfzig। zu + বিশেষণ = অতিরিক্ত: zu teuer (বেশি দামি)।"},
+    "woerter": [
+      ["das Geschäft", "দোকান", "Das Geschäft öffnet um neun Uhr.", "দোকান নয়টায় খোলে।"],
+      ["der Supermarkt", "সুপারমার্কেট", "Ich gehe in den Supermarkt.", "আমি সুপারমার্কেটে যাই।"],
+      ["kaufen", "কেনা", "Ich möchte Brot kaufen.", "আমি রুটি কিনতে চাই।"],
+      ["kosten", "দাম হওয়া", "Die Äpfel kosten zwei Euro.", "আপেলগুলোর দাম দুই ইউরো।"],
+      ["der Euro", "ইউরো", "Das macht fünf Euro.", "মোট পাঁচ ইউরো।"],
+      ["billig", "সস্তা", "Das Obst ist heute billig.", "ফল আজ সস্তা।"],
+      ["teuer", "দামি", "Das ist zu teuer.", "এটা অনেক দামি।"],
+      ["die Tüte", "ব্যাগ", "Brauchen Sie eine Tüte?", "আপনার কি ব্যাগ লাগবে?"],
+      ["die Karte", "কার্ড", "Zahlen Sie mit Karte?", "আপনি কি কার্ডে দেবেন?"]
+    ],
+    "dialog": [
+      ["Kunde", "Guten Tag. Wie viel kosten die Äpfel?", "শুভ দিন। আপেলগুলোর দাম কত?"],
+      ["Verkäufer", "Ein Kilo kostet drei Euro fünfzig.", "এক কেজির দাম তিন ইউরো পঞ্চাশ সেন্ট।"],
+      ["Kunde", "Das ist gut. Ich nehme zwei Kilo.", "ভালো। আমি দুই কেজি নেব।"],
+      ["Verkäufer", "Brauchen Sie eine Tüte?", "আপনার কি ব্যাগ লাগবে?"],
+      ["Kunde", "Ja, bitte. Ich zahle mit Karte.", "হ্যাঁ, দয়া করে। আমি কার্ডে দেব।"]
+    ]
+  },
+  {
+    "nr": 14, "thema": "Mein Tagesablauf", "bn": "আমার দৈনন্দিন রুটিন",
+    "grammatik": {"titel": "Trennbare Verben", "text": "aufstehen → ich stehe auf। উপসর্গ (auf, an, ein, mit, ab, zu) বাক্যের শেষে চলে যায়: Ich stehe um sechs Uhr auf। মডাল ক্রিয়ার সাথে পুরো ক্রিয়া শেষে থাকে: Ich muss früh aufstehen। এই নিয়মটি B1 পরীক্ষাতেও খুব দরকার।"},
+    "woerter": [
+      ["aufstehen", "ঘুম থেকে ওঠা", "Ich muss früh aufstehen.", "আমাকে তাড়াতাড়ি উঠতে হবে।"],
+      ["frühstücken", "সকালের নাস্তা করা", "Wir möchten zusammen frühstücken.", "আমরা একসাথে নাস্তা করতে চাই।"],
+      ["arbeiten", "কাজ করা", "Ich möchte in Deutschland arbeiten.", "আমি জার্মানিতে কাজ করতে চাই।"],
+      ["lernen", "শেখা", "Ich möchte jeden Tag Deutsch lernen.", "আমি প্রতিদিন জার্মান শিখতে চাই।"],
+      ["kochen", "রান্না করা", "Ich kann Reis kochen.", "আমি ভাত রান্না করতে পারি।"],
+      ["duschen", "গোসল করা", "Ich möchte jetzt duschen.", "আমি এখন গোসল করতে চাই।"],
+      ["schlafen", "ঘুমানো", "Ich muss früh schlafen.", "আমাকে তাড়াতাড়ি ঘুমাতে হবে।"],
+      ["der Tag", "দিন", "Ein Tag hat vierundzwanzig Stunden.", "একদিনে চব্বিশ ঘণ্টা।"],
+      ["der Morgen", "সকাল", "Am Morgen trinke ich Tee.", "সকালে আমি চা পান করি।"],
+      ["der Abend", "সন্ধ্যা", "Am Abend lerne ich Deutsch.", "সন্ধ্যায় আমি জার্মান শিখি।"]
+    ],
+    "dialog": [
+      ["A", "Wann stehst du auf?", "তুমি কখন ওঠো?"],
+      ["B", "Ich stehe um sechs Uhr auf und frühstücke um sieben.", "আমি ছয়টায় উঠি এবং সাতটায় নাস্তা করি।"],
+      ["A", "Und was machst du am Abend?", "আর সন্ধ্যায় তুমি কী করো?"],
+      ["B", "Ich lerne Deutsch und schlafe um zehn.", "আমি জার্মান শিখি এবং দশটায় ঘুমাই।"]
+    ]
+  }
+]

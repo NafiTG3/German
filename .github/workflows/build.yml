@@ -1,0 +1,54 @@
+name: Android APK bauen
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  apk:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: "17"
+
+      - uses: subosito/flutter-action@v2
+        with:
+          channel: stable
+          cache: true
+
+      # Plattformordner sind nicht im Repo, deshalb hier erzeugen
+      - name: Android Projekt erzeugen
+        run: flutter create --platforms=android --project-name deutsch_pfad --org com.deutschpfad .
+
+      # INTERNET für google_fonts, TTS_SERVICE für flutter_tts (Android 11+)
+      - name: Manifest anpassen
+        run: |
+          python3 - <<'PY'
+          import pathlib
+          p = pathlib.Path("android/app/src/main/AndroidManifest.xml")
+          s = p.read_text(encoding="utf-8")
+          internet = '<uses-permission android:name="android.permission.INTERNET"/>'
+          queries = ('<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/>'
+                     '</intent></queries>')
+          if internet not in s:
+              s = s.replace("<application", internet + "\n    <application", 1)
+          if "TTS_SERVICE" not in s:
+              s = s.replace("</manifest>", "    " + queries + "\n</manifest>", 1)
+          p.write_text(s, encoding="utf-8")
+          PY
+
+      - run: flutter pub get
+
+      - run: flutter test
+
+      - run: flutter build apk --release
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: deutsch-pfad-apk
+          path: build/app/outputs/flutter-apk/app-release.apk
