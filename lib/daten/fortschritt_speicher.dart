@@ -17,6 +17,26 @@ class FortschrittSpeicher {
     }
   }
 
+  static const _einfuehrungSchluessel = 'einfuehrung_gesehen';
+
+  Future<bool> einfuehrungGesehen() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      return prefs.getBool(_einfuehrungSchluessel) ?? false;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  Future<void> einfuehrungMarkieren() async {
+    try {
+      final prefs = await SharedPreferences.getInstance();
+      await prefs.setBool(_einfuehrungSchluessel, true);
+    } catch (_) {
+      // Ohne Speicher erscheint die Einführung beim nächsten Start erneut
+    }
+  }
+
   Future<void> schreiben(Map<String, dynamic> daten) async {
     try {
       final prefs = await SharedPreferences.getInstance();

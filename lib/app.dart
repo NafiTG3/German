@@ -5,6 +5,7 @@ import 'package:deutsch_pfad/daten/inhalt_repository.dart';
 import 'package:deutsch_pfad/kern/farben.dart';
 import 'package:deutsch_pfad/kern/schriften.dart';
 import 'package:deutsch_pfad/kern/thema.dart';
+import 'package:deutsch_pfad/seiten/einfuehrung_seite.dart';
 import 'package:deutsch_pfad/seiten/haupt_geruest.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 import 'package:deutsch_pfad/zustand/fortschritt_modell.dart';
@@ -17,9 +18,16 @@ class DeutschPfadApp extends StatefulWidget {
 }
 
 class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
+  final _speicher = FortschrittSpeicher();
   Inhalt? _inhalt;
   FortschrittModell? _fortschritt;
+  bool _einfuehrungGesehen = true;
   Object? _fehler;
+
+  void _einfuehrungAbschliessen() {
+    setState(() => _einfuehrungGesehen = true);
+    _speicher.einfuehrungMarkieren();
+  }
 
   @override
   void initState() {
@@ -30,16 +38,18 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
   Future<void> _starten() async {
     setState(() => _fehler = null);
     try {
-      final modell = FortschrittModell(FortschrittSpeicher());
-      // Inhalt und Fortschritt unabhängig voneinander parallel laden
+      final modell = FortschrittModell(_speicher);
+      // Inhalt, Fortschritt und Einführungsstatus unabhängig voneinander parallel laden
       final ergebnis = await Future.wait<Object>([
         InhaltRepository.laden(),
         modell.laden().then((_) => modell),
+        _speicher.einfuehrungGesehen(),
       ]);
       if (!mounted) return;
       setState(() {
         _inhalt = ergebnis[0] as Inhalt;
         _fortschritt = ergebnis[1] as FortschrittModell;
+        _einfuehrungGesehen = ergebnis[2] as bool;
       });
     } catch (e) {
       if (!mounted) return;
@@ -57,7 +67,9 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
       debugShowCheckedModeBanner: false,
       theme: baueThema(),
       home: bereit
-          ? const HauptGeruest()
+          ? (_einfuehrungGesehen
+              ? const HauptGeruest()
+              : EinfuehrungSeite(onFertig: _einfuehrungAbschliessen))
           : _Ladebild(fehler: _fehler, erneut: _starten),
       builder: (context, kind) => (inhalt != null && fortschritt != null)
           ? AppDaten(inhalt: inhalt, fortschritt: fortschritt, child: kind!)
