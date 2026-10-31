@@ -8,8 +8,22 @@ on:
 jobs:
   apk:
     runs-on: ubuntu-latest
+    env:
+      ANDROID_KEYSTORE_BASE64: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+      ANDROID_KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+      ANDROID_KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+      ANDROID_KEY_PASSWORD: ${{ secrets.ANDROID_KEY_PASSWORD }}
     steps:
       - uses: actions/checkout@v4
+
+      - name: Secrets prüfen
+        run: |
+          for name in ANDROID_KEYSTORE_BASE64 ANDROID_KEYSTORE_PASSWORD ANDROID_KEY_ALIAS ANDROID_KEY_PASSWORD; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Secret $name fehlt (Settings, Secrets and variables, Actions)"
+              exit 1
+            fi
+          done
 
       - uses: actions/setup-java@v4
         with:
@@ -27,16 +41,17 @@ jobs:
           flutter create --platforms=android --project-name deutsch_pfad --org com.deutschpfad .
           rm -f test/widget_test.dart
 
-      # INTERNET für google_fonts, TTS_SERVICE für flutter_tts (Android 11+)
+      # App Name, INTERNET für google_fonts, TTS_SERVICE für flutter_tts (Android 11+)
       - name: Manifest anpassen
         run: |
           python3 - <<'PY'
-          import pathlib
+          import pathlib, re
           p = pathlib.Path("android/app/src/main/AndroidManifest.xml")
           s = p.read_text(encoding="utf-8")
           internet = '<uses-permission android:name="android.permission.INTERNET"/>'
           queries = ('<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/>'
                      '</intent></queries>')
+          s = re.sub(r'android:label="[^"]*"', 'android:label="Umlaut"', s, count=1)
           if internet not in s:
               s = s.replace("<application", internet + "\n    <application", 1)
           if "TTS_SERVICE" not in s:
@@ -46,11 +61,33 @@ jobs:
 
       - run: flutter pub get
 
+      - name: App Icon erzeugen
+        run: dart run flutter_launcher_icons
+
       - run: flutter test
 
-      - run: flutter build apk --release
+      - run: flutter build apk --release --build-number=${{ github.run_number }}
+
+      # Mit dem eigenen Keystore signieren (ersetzt die Debug Signatur)
+      - name: APK signieren
+        run: |
+          set -euo pipefail
+          BUILD_TOOLS="$(ls -d "$ANDROID_HOME"/build-tools/* | sort -V | tail -1)"
+          KEYSTORE="$RUNNER_TEMP/release.jks"
+          echo "$ANDROID_KEYSTORE_BASE64" | base64 -d > "$KEYSTORE"
+          mkdir -p dist
+          KS_PASS="$ANDROID_KEYSTORE_PASSWORD" KEY_PASS="$ANDROID_KEY_PASSWORD" \
+          "$BUILD_TOOLS/apksigner" sign \
+            --ks "$KEYSTORE" \
+            --ks-key-alias "$ANDROID_KEY_ALIAS" \
+            --ks-pass env:KS_PASS \
+            --key-pass env:KEY_PASS \
+            --out dist/umlaut.apk \
+            build/app/outputs/flutter-apk/app-release.apk
+          "$BUILD_TOOLS/apksigner" verify --print-certs dist/umlaut.apk
+          rm -f "$KEYSTORE"
 
       - uses: actions/upload-artifact@v4
         with:
-          name: deutsch-pfad-apk
-          path: build/app/outputs/flutter-apk/app-release.apk
+          name: umlaut-apk
+          path: dist/umlaut.apk

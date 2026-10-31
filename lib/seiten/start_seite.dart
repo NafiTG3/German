@@ -50,7 +50,7 @@ class StartSeite extends StatelessWidget {
                 delegate: SliverChildListDelegate([
                   Row(
                     children: [
-                      const Etikett('Deutsch Pfad'),
+                      const Etikett('Umlaut'),
                       const Spacer(),
                       _SerieChip(serie: f.serie),
                     ],

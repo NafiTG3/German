@@ -63,7 +63,7 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
     final fortschritt = _fortschritt;
     final bereit = inhalt != null && fortschritt != null;
     return MaterialApp(
-      title: 'Deutsch Pfad',
+      title: 'Umlaut',
       debugShowCheckedModeBanner: false,
       theme: baueThema(),
       home: bereit
@@ -89,7 +89,7 @@ class _Ladebild extends StatelessWidget {
     return Scaffold(
       body: Center(
         child: fehler == null
-            ? Text('Deutsch Pfad', style: Schriften.anzeige(36))
+            ? Text('Umlaut', style: Schriften.anzeige(36))
             : Padding(
                 padding: const EdgeInsets.all(24),
                 child: Column(
