@@ -23,7 +23,9 @@ jobs:
 
       # Plattformordner sind nicht im Repo, deshalb hier erzeugen
       - name: Android Projekt erzeugen
-        run: flutter create --platforms=android --project-name deutsch_pfad --org com.deutschpfad .
+        run: |
+          flutter create --platforms=android --project-name deutsch_pfad --org com.deutschpfad .
+          rm -f test/widget_test.dart
 
       # INTERNET für google_fonts, TTS_SERVICE für flutter_tts (Android 11+)
       - name: Manifest anpassen
