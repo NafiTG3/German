@@ -4,6 +4,8 @@ import 'package:deutsch_pfad/kern/abstand.dart';
 import 'package:deutsch_pfad/kern/farben.dart';
 import 'package:deutsch_pfad/kern/schriften.dart';
 import 'package:deutsch_pfad/widgets/etikett.dart';
+import 'package:deutsch_pfad/widgets/flaggen_band.dart';
+import 'package:deutsch_pfad/widgets/tannen_landschaft.dart';
 import 'package:deutsch_pfad/widgets/ton_knopf.dart';
 
 class EinfuehrungSeite extends StatefulWidget {
@@ -44,9 +46,37 @@ class _EinfuehrungSeiteZustand extends State<EinfuehrungSeite> {
         ),
       );
 
+  Widget _landschaft() => ClipRRect(
+        borderRadius: BorderRadius.circular(28),
+        child: Container(
+          height: 240,
+          width: double.infinity,
+          color: Farben.tanne,
+          child: Stack(
+            children: [
+              const Positioned(
+                left: 0,
+                right: 0,
+                bottom: 0,
+                height: 150,
+                child: TannenLandschaft(),
+              ),
+              Padding(
+                padding: const EdgeInsets.all(24),
+                child: Text(
+                  'Hallo',
+                  style: Schriften.anzeige(72,
+                      farbe: Farben.papier, gewicht: FontWeight.w300),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+
   List<_Folie> _folien() => [
         _Folie(
-          visual: _riesig('Hallo', farbe: Farben.signal),
+          visual: _landschaft(),
           titel: 'Willkommen.',
           bn: 'জার্মানিতে আউসবিল্ডুং-এর স্বপ্ন এখান থেকেই শুরু। প্রতিদিন একটু একটু করে জার্মান শেখো, নিজের ভাষা বাংলায় বুঝে।',
         ),
@@ -123,6 +153,7 @@ class _EinfuehrungSeiteZustand extends State<EinfuehrungSeite> {
       body: SafeArea(
         child: Column(
           children: [
+            const FlaggenBand(),
             Padding(
               padding: const EdgeInsets.fromLTRB(24, 8, 8, 0),
               child: Row(

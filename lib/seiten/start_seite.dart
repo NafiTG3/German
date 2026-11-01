@@ -10,6 +10,7 @@ import 'package:deutsch_pfad/modelle/tag.dart';
 import 'package:deutsch_pfad/seiten/tag_seite.dart';
 import 'package:deutsch_pfad/widgets/etikett.dart';
 import 'package:deutsch_pfad/widgets/fortschrittsbalken.dart';
+import 'package:deutsch_pfad/widgets/tannen_landschaft.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 import 'package:deutsch_pfad/zustand/fortschritt_modell.dart';
 
@@ -163,54 +164,66 @@ class _HeldenKarte extends StatelessWidget {
   Widget build(BuildContext context) {
     final woche = Lehrplan.wocheVonTag(tag.nummer);
     return Material(
-      color: Farben.tinte,
+      color: Farben.tanne,
       borderRadius: BorderRadius.circular(28),
       clipBehavior: Clip.antiAlias,
       child: InkWell(
         onTap: () => _oeffneTag(context, tag),
-        child: Padding(
-          padding: const EdgeInsets.all(24),
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Etikett('Heute · Woche $woche', farbe: Farben.papierDunkel),
-              const SizedBox(height: Abstand.a8),
-              Text(
-                tag.nummer.toString().padLeft(2, '0'),
-                style: Schriften.anzeige(
-                  112,
-                  farbe: Farben.papier,
-                  gewicht: FontWeight.w300,
-                  hoehe: 0.95,
-                ),
+        child: Stack(
+          children: [
+            const Positioned(
+              left: 0,
+              right: 0,
+              bottom: 0,
+              height: 120,
+              child: TannenLandschaft(),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(24),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Etikett('Heute · Woche $woche', farbe: Farben.papierDunkel),
+                  const SizedBox(height: Abstand.a8),
+                  Text(
+                    tag.nummer.toString().padLeft(2, '0'),
+                    style: Schriften.anzeige(
+                      112,
+                      farbe: Farben.papier,
+                      gewicht: FontWeight.w300,
+                      hoehe: 0.95,
+                    ),
+                  ),
+                  const SizedBox(height: Abstand.a8),
+                  Text(tag.thema,
+                      style: Schriften.anzeige(28, farbe: Farben.papier)),
+                  Text(tag.themaBn,
+                      style: Schriften.bangla(16, farbe: Farben.papierDunkel)),
+                  const SizedBox(height: Abstand.a24),
+                  Container(
+                    padding:
+                        const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
+                    decoration: BoxDecoration(
+                      color: Farben.gold,
+                      borderRadius: BorderRadius.circular(999),
+                    ),
+                    child: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        Text('Lektion starten',
+                            style: Schriften.text(16,
+                                gewicht: FontWeight.w700)),
+                        const SizedBox(width: 8),
+                        const Icon(Icons.arrow_forward_rounded,
+                            color: Farben.tinte, size: 20),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: Abstand.a48),
+                ],
               ),
-              const SizedBox(height: Abstand.a8),
-              Text(tag.thema,
-                  style: Schriften.anzeige(28, farbe: Farben.papier)),
-              Text(tag.themaBn,
-                  style: Schriften.bangla(16, farbe: Farben.papierDunkel)),
-              const SizedBox(height: Abstand.a24),
-              Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 20, vertical: 14),
-                decoration: BoxDecoration(
-                  color: Farben.signal,
-                  borderRadius: BorderRadius.circular(999),
-                ),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    Text('Lektion starten',
-                        style: Schriften.text(16,
-                            farbe: Colors.white, gewicht: FontWeight.w700)),
-                    const SizedBox(width: 8),
-                    const Icon(Icons.arrow_forward_rounded,
-                        color: Colors.white, size: 20),
-                  ],
-                ),
-              ),
-            ],
-          ),
+            ),
+          ],
         ),
       ),
     );

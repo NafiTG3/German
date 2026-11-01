@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import 'package:deutsch_pfad/daten/fortschritt_speicher.dart';
 import 'package:deutsch_pfad/daten/inhalt_repository.dart';
+import 'package:deutsch_pfad/dienste/sprach_dienst.dart';
 import 'package:deutsch_pfad/kern/farben.dart';
 import 'package:deutsch_pfad/kern/schriften.dart';
 import 'package:deutsch_pfad/kern/thema.dart';
@@ -66,6 +67,7 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
       title: 'Umlaut',
       debugShowCheckedModeBanner: false,
       theme: baueThema(),
+      scaffoldMessengerKey: SprachDienst.messengerKey,
       home: bereit
           ? (_einfuehrungGesehen
               ? const HauptGeruest()

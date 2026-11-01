@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:deutsch_pfad/seiten/plan_seite.dart';
 import 'package:deutsch_pfad/seiten/start_seite.dart';
 import 'package:deutsch_pfad/seiten/wiederholen_seite.dart';
+import 'package:deutsch_pfad/seiten/woerterbuch_seite.dart';
+import 'package:deutsch_pfad/widgets/flaggen_band.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 
 class HauptGeruest extends StatefulWidget {
@@ -22,10 +24,19 @@ class _HauptGeruestZustand extends State<HauptGeruest> {
     final seiten = <Widget>[
       StartSeite(zumWiederholen: () => setState(() => _tab = 1)),
       const WiederholenSeite(),
+      const WoerterbuchSeite(),
       const PlanSeite(),
     ];
     return Scaffold(
-      body: SafeArea(bottom: false, child: seiten[_tab]),
+      body: SafeArea(
+        bottom: false,
+        child: Column(
+          children: [
+            const FlaggenBand(),
+            Expanded(child: seiten[_tab]),
+          ],
+        ),
+      ),
       bottomNavigationBar: ListenableBuilder(
         listenable: fortschritt,
         builder: (context, _) {
@@ -51,6 +62,11 @@ class _HauptGeruestZustand extends State<HauptGeruest> {
                   child: const Icon(Icons.style_rounded),
                 ),
                 label: 'Wiederholen',
+              ),
+              const NavigationDestination(
+                icon: Icon(Icons.menu_book_outlined),
+                selectedIcon: Icon(Icons.menu_book_rounded),
+                label: 'Wörterbuch',
               ),
               const NavigationDestination(
                 icon: Icon(Icons.map_outlined),

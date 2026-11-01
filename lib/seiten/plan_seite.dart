@@ -56,7 +56,7 @@ class PlanSeite extends StatelessWidget {
         kinder.add(Container(
           padding: const EdgeInsets.all(24),
           decoration: BoxDecoration(
-            color: Farben.tinte,
+            color: Farben.tanne,
             borderRadius: BorderRadius.circular(28),
           ),
           child: Column(
