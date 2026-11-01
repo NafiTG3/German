@@ -10,6 +10,7 @@ import 'package:deutsch_pfad/modelle/aufgabe.dart';
 import 'package:deutsch_pfad/modelle/tag.dart';
 import 'package:deutsch_pfad/widgets/etikett.dart';
 import 'package:deutsch_pfad/widgets/fortschrittsbalken.dart';
+import 'package:deutsch_pfad/widgets/natur_hintergrund.dart';
 import 'package:deutsch_pfad/widgets/ton_knopf.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 
@@ -127,7 +128,7 @@ class _UebungSeiteZustand extends State<UebungSeite> {
           ),
         ],
       ),
-      body: ListView(
+      body: NaturSeite(child: ListView(
         padding: const EdgeInsets.fromLTRB(24, 16, 24, 32),
         children: [
           Etikett(_anweisung(a.art).$1),
@@ -149,7 +150,7 @@ class _UebungSeiteZustand extends State<UebungSeite> {
               onTap: () => _waehlen(i),
             ),
         ],
-      ),
+      )),
       bottomNavigationBar: gewaehlt == null
           ? null
           : SafeArea(
@@ -310,7 +311,7 @@ class _Ergebnis extends StatelessWidget {
   Widget build(BuildContext context) {
     final bestanden = prozent >= Konstanten.bestehensGrenze;
     return Scaffold(
-      body: SafeArea(
+      body: NaturSeite(child: SafeArea(
         child: Padding(
           padding: const EdgeInsets.all(24),
           child: Column(
@@ -359,7 +360,7 @@ class _Ergebnis extends StatelessWidget {
             ],
           ),
         ),
-      ),
+      )),
     );
   }
 }

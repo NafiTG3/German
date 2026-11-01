@@ -9,6 +9,7 @@ import 'package:deutsch_pfad/modelle/tag.dart';
 import 'package:deutsch_pfad/modelle/wort.dart';
 import 'package:deutsch_pfad/seiten/uebung_seite.dart';
 import 'package:deutsch_pfad/widgets/etikett.dart';
+import 'package:deutsch_pfad/widgets/natur_hintergrund.dart';
 import 'package:deutsch_pfad/widgets/ton_knopf.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 
@@ -28,7 +29,7 @@ class TagSeite extends StatelessWidget {
         title: Text('Tag ${tag.nummer}',
             style: Schriften.text(16, gewicht: FontWeight.w600)),
       ),
-      body: ListView(
+      body: NaturSeite(child: ListView(
         padding: const EdgeInsets.fromLTRB(24, 8, 24, 32),
         children: [
           Etikett('Woche $woche'),
@@ -51,7 +52,7 @@ class TagSeite extends StatelessWidget {
             ),
           ],
         ],
-      ),
+      )),
       bottomNavigationBar: SafeArea(
         child: Padding(
           padding: const EdgeInsets.fromLTRB(24, 8, 24, 16),

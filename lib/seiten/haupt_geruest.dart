@@ -5,6 +5,7 @@ import 'package:deutsch_pfad/seiten/start_seite.dart';
 import 'package:deutsch_pfad/seiten/wiederholen_seite.dart';
 import 'package:deutsch_pfad/seiten/woerterbuch_seite.dart';
 import 'package:deutsch_pfad/widgets/flaggen_band.dart';
+import 'package:deutsch_pfad/widgets/natur_hintergrund.dart';
 import 'package:deutsch_pfad/zustand/app_daten.dart';
 
 class HauptGeruest extends StatefulWidget {
@@ -28,7 +29,7 @@ class _HauptGeruestZustand extends State<HauptGeruest> {
       const PlanSeite(),
     ];
     return Scaffold(
-      body: SafeArea(
+      body: NaturSeite(child: SafeArea(
         bottom: false,
         child: Column(
           children: [
@@ -36,7 +37,7 @@ class _HauptGeruestZustand extends State<HauptGeruest> {
             Expanded(child: seiten[_tab]),
           ],
         ),
-      ),
+      )),
       bottomNavigationBar: ListenableBuilder(
         listenable: fortschritt,
         builder: (context, _) {

@@ -5,6 +5,7 @@ import 'package:deutsch_pfad/kern/farben.dart';
 import 'package:deutsch_pfad/kern/schriften.dart';
 import 'package:deutsch_pfad/widgets/etikett.dart';
 import 'package:deutsch_pfad/widgets/flaggen_band.dart';
+import 'package:deutsch_pfad/widgets/natur_hintergrund.dart';
 import 'package:deutsch_pfad/widgets/tannen_landschaft.dart';
 import 'package:deutsch_pfad/widgets/ton_knopf.dart';
 
@@ -150,7 +151,7 @@ class _EinfuehrungSeiteZustand extends State<EinfuehrungSeite> {
     final folien = _folien();
     final letzte = _seite == folien.length - 1;
     return Scaffold(
-      body: SafeArea(
+      body: NaturSeite(child: SafeArea(
         child: Column(
           children: [
             const FlaggenBand(),
@@ -242,7 +243,7 @@ class _EinfuehrungSeiteZustand extends State<EinfuehrungSeite> {
             ),
           ],
         ),
-      ),
+      )),
     );
   }
 }

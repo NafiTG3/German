@@ -12,6 +12,13 @@ dependencies:
   shared_preferences: ^2.2.3
   flutter_tts: ^4.0.2
   google_fonts: ^6.2.1
+  # Letzte 1.x Version, nur dort funktioniert espeak-ng-data (dataDir) für Piper Stimmen
+  sherpa_onnx: 1.12.40
+  audioplayers: ^6.1.0
+  path_provider: ^2.1.4
+  archive: ^3.6.1
+  flutter_local_notifications: ^18.0.1
+  timezone: ^0.9.4
 
 dev_dependencies:
   flutter_test:
@@ -31,3 +38,4 @@ flutter:
   uses-material-design: true
   assets:
     - assets/inhalt/
+    - assets/stimme/

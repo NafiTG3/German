@@ -41,19 +41,100 @@ jobs:
           flutter create --platforms=android --project-name deutsch_pfad --org com.deutschpfad .
           rm -f test/widget_test.dart
 
-      # App Name, INTERNET für google_fonts, TTS_SERVICE für flutter_tts (Android 11+)
+      # Eingebaute männliche deutsche Stimme (Piper Thorsten, offline)
+      - name: Deutsche Stimme laden
+        run: |
+          set -euo pipefail
+          WORK="$RUNNER_TEMP/stimme"
+          mkdir -p assets/stimme "$WORK"
+          curl -fsSL --retry 3 -o "$WORK/modell.tar.bz2" \
+            https://github.com/k2-fsa/sherpa-onnx/releases/download/tts-models/vits-piper-de_DE-thorsten-medium.tar.bz2
+          tar -xjf "$WORK/modell.tar.bz2" -C "$WORK"
+          M="$WORK/vits-piper-de_DE-thorsten-medium"
+          cp "$M/de_DE-thorsten-medium.onnx" assets/stimme/model.onnx
+          cp "$M/tokens.txt" assets/stimme/tokens.txt
+          (cd "$M" && zip -qr "$GITHUB_WORKSPACE/assets/stimme/espeak.zip" espeak-ng-data)
+          ls -la assets/stimme
+
+      # Logo für Benachrichtigungen (klein: weiße Silhouette, groß: farbiges Logo)
+      - name: Benachrichtigungs Icons kopieren
+        run: |
+          mkdir -p android/app/src/main/res/drawable-nodpi
+          cp assets/icon/notif_klein.png android/app/src/main/res/drawable-nodpi/notif_klein.png
+          cp assets/icon/notif_gross.png android/app/src/main/res/drawable-nodpi/notif_logo.png
+          # R8 (Release) darf Icons und Gson Klassen der Benachrichtigungen nicht entfernen
+          mkdir -p android/app/src/main/res/raw
+          cat > android/app/src/main/res/raw/keep.xml <<'XML'
+          <?xml version="1.0" encoding="utf-8"?>
+          <resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@drawable/*" />
+          XML
+          cat > android/app/proguard-rules.pro <<'PRO'
+          -keep class com.dexterous.flutterlocalnotifications.** { *; }
+          -keepattributes Signature
+          -keepattributes *Annotation*
+          -keep class com.google.gson.** { *; }
+          -keep class * extends com.google.gson.TypeAdapter
+          -keep class * implements com.google.gson.TypeAdapterFactory
+          -keep class * implements com.google.gson.JsonSerializer
+          -keep class * implements com.google.gson.JsonDeserializer
+          PRO
+
+      # flutter_local_notifications braucht Desugaring
+      - name: Gradle anpassen
+        run: |
+          python3 - <<'PY'
+          import pathlib, re
+          kts = pathlib.Path("android/app/build.gradle.kts")
+          gr = pathlib.Path("android/app/build.gradle")
+          if kts.exists():
+              s = kts.read_text(encoding="utf-8")
+              if "isCoreLibraryDesugaringEnabled" not in s:
+                  s = re.sub(r"(compileOptions\s*\{)", r"\1\n        isCoreLibraryDesugaringEnabled = true", s, count=1)
+                  s += '\ndependencies {\n    coreLibraryDesugaring("com.android.tools:desugar_jdk_libs:2.0.4")\n}\n'
+                  assert "isCoreLibraryDesugaringEnabled" in s
+              kts.write_text(s, encoding="utf-8")
+          elif gr.exists():
+              s = gr.read_text(encoding="utf-8")
+              if "coreLibraryDesugaringEnabled" not in s:
+                  s = re.sub(r"(compileOptions\s*\{)", r"\1\n        coreLibraryDesugaringEnabled true", s, count=1)
+                  s += "\ndependencies {\n    coreLibraryDesugaring 'com.android.tools:desugar_jdk_libs:2.0.4'\n}\n"
+                  assert "coreLibraryDesugaringEnabled" in s
+              gr.write_text(s, encoding="utf-8")
+          else:
+              raise SystemExit("build.gradle nicht gefunden")
+          PY
+
+      # App Name, Berechtigungen, Empfänger für geplante Benachrichtigungen, TTS_SERVICE (Android 11+)
       - name: Manifest anpassen
         run: |
           python3 - <<'PY'
           import pathlib, re
           p = pathlib.Path("android/app/src/main/AndroidManifest.xml")
           s = p.read_text(encoding="utf-8")
-          internet = '<uses-permission android:name="android.permission.INTERNET"/>'
+          rechte = [
+              "android.permission.INTERNET",
+              "android.permission.POST_NOTIFICATIONS",
+              "android.permission.RECEIVE_BOOT_COMPLETED",
+              "android.permission.VIBRATE",
+          ]
+          empfaenger = (
+              '<receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />\n'
+              '        <receiver android:exported="false" android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver">\n'
+              '            <intent-filter>\n'
+              '                <action android:name="android.intent.action.BOOT_COMPLETED"/>\n'
+              '                <action android:name="android.intent.action.MY_PACKAGE_REPLACED"/>\n'
+              '                <action android:name="android.intent.action.QUICKBOOT_POWERON" />\n'
+              '                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON"/>\n'
+              '            </intent-filter>\n'
+              '        </receiver>'
+          )
           queries = ('<queries><intent><action android:name="android.intent.action.TTS_SERVICE"/>'
                      '</intent></queries>')
           s = re.sub(r'android:label="[^"]*"', 'android:label="Umlaut"', s, count=1)
-          if internet not in s:
-              s = s.replace("<application", internet + "\n    <application", 1)
+          zeilen = "".join('    <uses-permission android:name="%s"/>\n' % r for r in rechte if r not in s)
+          s = s.replace("<application", zeilen + "    <application", 1)
+          if "ScheduledNotificationReceiver" not in s:
+              s = s.replace("</application>", "        " + empfaenger + "\n    </application>", 1)
           if "TTS_SERVICE" not in s:
               s = s.replace("</manifest>", "    " + queries + "\n</manifest>", 1)
           p.write_text(s, encoding="utf-8")
@@ -66,7 +147,7 @@ jobs:
 
       - run: flutter test
 
-      - run: flutter build apk --release --build-number=${{ github.run_number }}
+      - run: flutter build apk --release --target-platform android-arm,android-arm64 --build-number=${{ github.run_number }}
 
       # Mit dem eigenen Keystore signieren (ersetzt die Debug Signatur)
       - name: APK signieren

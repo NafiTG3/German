@@ -11,3 +11,6 @@ macos/
 windows/
 .idea/
 *.iml
+assets/stimme/model.onnx
+assets/stimme/tokens.txt
+assets/stimme/espeak.zip

@@ -1,7 +1,10 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 
 import 'package:deutsch_pfad/daten/fortschritt_speicher.dart';
 import 'package:deutsch_pfad/daten/inhalt_repository.dart';
+import 'package:deutsch_pfad/dienste/erinnerungs_dienst.dart';
 import 'package:deutsch_pfad/dienste/sprach_dienst.dart';
 import 'package:deutsch_pfad/kern/farben.dart';
 import 'package:deutsch_pfad/kern/schriften.dart';
@@ -28,6 +31,7 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
   void _einfuehrungAbschliessen() {
     setState(() => _einfuehrungGesehen = true);
     _speicher.einfuehrungMarkieren();
+    unawaited(ErinnerungsDienst.starten());
   }
 
   @override
@@ -52,6 +56,9 @@ class _DeutschPfadAppZustand extends State<DeutschPfadApp> {
         _fortschritt = ergebnis[1] as FortschrittModell;
         _einfuehrungGesehen = ergebnis[2] as bool;
       });
+      // Stimme im Hintergrund vorbereiten, Erinnerungen erst nach der Einführung
+      unawaited(SprachDienst.instanz.vorwaermen());
+      if (_einfuehrungGesehen) unawaited(ErinnerungsDienst.starten());
     } catch (e) {
       if (!mounted) return;
       setState(() => _fehler = e);
